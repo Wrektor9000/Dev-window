@@ -1,0 +1,36 @@
+import math
+
+nota_f = float(input("Digite a Média Final requerida: "))
+num_provas = float(input("Digite o Numero de Provas: "))
+count = 0
+i = 0
+
+vet_provas = []
+vet_pesos = []
+
+
+while count < num_provas-1:
+    nota_prova = float(input(f"Digite a nota {count+1}: "))
+    peso_prova = float(input("Digite o peso da prova: "))
+    vet_provas.append(nota_prova)
+    vet_pesos.append(peso_prova)
+    count = count + 1
+
+vet_soma = [0] * count
+peso_pf = float(input("Digite o peso da ultima prova: "))
+const_pf = nota_f * (sum(vet_pesos) + peso_pf)
+
+for i in range(count):
+    vet_soma[i] = vet_pesos[i]*vet_provas[i]
+
+soma_nupe = sum(vet_soma)
+
+ultima_nota = (const_pf-soma_nupe)/peso_pf
+
+if ultima_nota <= 0:
+    print("APROVADO!!!!!")
+else:
+    print(f"Você precisara na ultima prova a nota {ultima_nota:.2f}")
+
+
+x = input("Acabou Programa")
